@@ -1,14 +1,15 @@
-function sum() {
-    var number = 0;
-    var len = arguments.length;
+function sum(s) {
+  var number = 0;
 
-    for (var i = 0; i < len; i += 1) {
-        number += arguments[i];
+  function f(s){
+    if(s) {
+      number += s;
+        return f;
+    } else {
+      return number;
     }
-
-    return number;
+  }
+  return f(s);
 }
 
-var a = sum(2,4)
-
-console.log(a);
+alert( sum(19)(52)(4)(24)(4)());
