@@ -41,7 +41,7 @@ function promiseReduce(asyncFunctions = [], reduce, initialValue = 0) {
         try {
           return reduce(number, await func());
         } catch (e) {
-          console.warn(`${funs.name} failed with ${e}`);
+          console.warn(`${func.name} failed with ${e}`);
           return number;
         }
 
@@ -56,8 +56,8 @@ function promiseReduce(asyncFunctions = [], reduce, initialValue = 0) {
 }
 
 promiseReduce([fn1, fn2], function (memo, value) {
-  console.log('reduce')
+  console.log('reduce');
   return memo * value
   },1)
-       .then(console.log)
+       .then(console.log);
 
